@@ -1,0 +1,359 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Deep Ocean Theme - Darker blues while keeping the aqua aesthetic */
+  --background: oklch(0.08 0.04 230);
+  --foreground: oklch(0.95 0.02 200);
+  --card: oklch(0.12 0.05 225 / 0.5);
+  --card-foreground: oklch(0.95 0.02 200);
+  --popover: oklch(0.1 0.04 225 / 0.9);
+  --popover-foreground: oklch(0.95 0.02 200);
+  --primary: oklch(0.65 0.18 200);
+  --primary-foreground: oklch(0.05 0.02 230);
+  --secondary: oklch(0.18 0.06 220 / 0.6);
+  --secondary-foreground: oklch(0.9 0.03 200);
+  --muted: oklch(0.15 0.05 225 / 0.5);
+  --muted-foreground: oklch(0.6 0.06 200);
+  --accent: oklch(0.55 0.2 190);
+  --accent-foreground: oklch(0.05 0.02 230);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: oklch(0.35 0.12 200 / 0.35);
+  --input: oklch(0.15 0.06 220 / 0.6);
+  --ring: oklch(0.55 0.18 195);
+  --chart-1: oklch(0.55 0.18 200);
+  --chart-2: oklch(0.5 0.2 190);
+  --chart-3: oklch(0.45 0.15 210);
+  --chart-4: oklch(0.6 0.15 195);
+  --chart-5: oklch(0.5 0.18 185);
+  --radius: 1rem;
+  --sidebar: oklch(0.06 0.04 235);
+  --sidebar-foreground: oklch(0.95 0.02 200);
+  --sidebar-primary: oklch(0.55 0.18 195);
+  --sidebar-primary-foreground: oklch(0.05 0.02 230);
+  --sidebar-accent: oklch(0.18 0.06 220 / 0.6);
+  --sidebar-accent-foreground: oklch(0.95 0.02 200);
+  --sidebar-border: oklch(0.35 0.12 200 / 0.35);
+  --sidebar-ring: oklch(0.55 0.18 195);
+
+  /* Deeper aqua colors for the ocean theme */
+  --aqua-light: oklch(0.6 0.15 200);
+  --aqua-cyan: oklch(0.5 0.18 190);
+  --aqua-ocean: oklch(0.3 0.14+ 225);
+  --aqua-deep: oklch(0.12 0.08 235);
+  --aqua-glow: oklch(0.5 0.2 195 / 0.5);
+  --glass-bg: oklch(0.15 0.06 220 / 0.3);
+  --glass-border: oklch(0.4 0.12 200 / 0.25);
+}
+
+.dark {
+  /* Even darker variant for dark mode */
+  --background: oklch(0.05 0.04 235);
+  --foreground: oklch(0.95 0.02 200);
+  --card: oklch(0.1 0.05 225 / 0.5);
+  --card-foreground: oklch(0.95 0.02 200);
+  --popover: oklch(0.08 0.04 230 / 0.95);
+  --popover-foreground: oklch(0.95 0.02 200);
+  --primary: oklch(0.6 0.18 200);
+  --primary-foreground: oklch(0.05 0.02 235);
+  --secondary: oklch(0.15 0.06 220 / 0.6);
+  --secondary-foreground: oklch(0.9 0.03 200);
+  --muted: oklch(0.12 0.05 225 / 0.5);
+  --muted-foreground: oklch(0.55 0.06 200);
+  --accent: oklch(0.5 0.2 190);
+  --accent-foreground: oklch(0.05 0.02 235);
+  --destructive: oklch(0.396 0.14+1 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.3 0.1 200 / 0.3);
+  --input: oklch(0.12 0.06 220 / 0.6);
+  --ring: oklch(0.5 0.18 195);
+  --chart-1: oklch(0.55 0.18 200);
+  --chart-2: oklch(0.5 0.2 190);
+  --chart-3: oklch(0.45 0.15 210);
+  --chart-4: oklch(0.6 0.15 195);
+  --chart-5: oklch(0.5 0.18 185);
+  --sidebar: oklch(0.04 0.04 240);
+  --sidebar-foreground: oklch(0.95 0.02 200);
+  --sidebar-primary: oklch(0.5 0.18 195);
+  --sidebar-primary-foreground: oklch(0.05 0.02 235);
+  --sidebar-accent: oklch(0.15 0.06 220 / 0.6);
+  --sidebar-accent-foreground: oklch(0.95 0.02 200);
+  --sidebar-border: oklch(0.3 0.1 200 / 0.3);
+  --sidebar-ring: oklch(0.5 0.18 195);
+}
+
+@theme inline {
+  --font-sans: "Inter", "Inter Fallback", sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Custom aqua color utilities */
+  --color-aqua-light: var(--aqua-light);
+  --color-aqua-cyan: var(--aqua-cyan);
+  --color-aqua-ocean: var(--aqua-ocean);
+  --color-aqua-deep: var(--aqua-deep);
+  --color-aqua-glow: var(--aqua-glow);
+  --color-glass-bg: var(--glass-bg);
+  --color-glass-border: var(--glass-border);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Animations */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(2deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    filter: blur(40px);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    filter: blur(60px);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(100%) scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 3s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 4s ease-in-out infinite;
+}
+
+.animate-wave {
+  animation: wave 8s linear infinite;
+}
+
+.animate-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2), 
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), 
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.15),
+              0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.glass-subtle {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.15);
+}
+
+/* Aqua Gradient Backgrounds */
+/* Even deeper ocean gradient backgrounds for enhanced darkness and aesthetic */
+.aqua-gradient {
+  background: linear-gradient(135deg, oklch(0.08 0.08 235) 0%, oklch(0.04 0.06 240) 50%, oklch(0.02 0.04 245) 100%);
+  min-height: 100vh;
+}
+
+.aqua-gradient-radial {
+  background: radial-gradient(ellipse at 30% 20%, oklch(0.15 0.12 220 / 0.25) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 80%, oklch(0.12 0.1 230 / 0.2) 0%, transparent 60%);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced focus styles */
+*:focus-visible {
+  outline: 2px solid oklch(0.55 0.18 195);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Better text selection */
+::selection {
+  background: oklch(0.55 0.18 195 / 0.3);
+  color: oklch(0.95 0.02 200);
+}
+
+::-moz-selection {
+  background: oklch(0.55 0.18 195 / 0.3);
+  color: oklch(0.95 0.02 200);
+}
+
+/* Custom scrollbar */
+/* Darker scrollbar for deep ocean theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: oklch(0.06 0.04 235);
+}
+
+::-webkit-scrollbar-thumb {
+  background: oklch(0.35 0.12 200 / 0.5);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: oklch(0.45 0.14+ 200 / 0.7);
+}
+
+/* Auto-scroll animation for horizontal carousels */
+@keyframes auto-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.auto-scroll {
+  animation: auto-scroll 30s linear infinite;
+}
+
+.auto-scroll:hover {
+  animation-play-state: paused;
+}
